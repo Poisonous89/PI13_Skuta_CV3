@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoznam krúžkov</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'kruzky/style.css' %}">
+</head>
+<body>
+
+    <h1>Zoznam školských krúžkov s vedúcimi</h1>
+
+    {% if kruzky %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Názov krúžku</th>
+                    <th>Deň</th>
+                    <th>Miestnosť</th>
+                    <th>Meno vedúceho</th>
+                    <th>E-mail vedúceho</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for kruzok in kruzky %}
+                <tr>
+                    <td>{{ kruzok.nazov }}</td>
+                    <td>{{ kruzok.den }}</td>
+                    <td>{{ kruzok.miestnost }}</td>
+                    <td>{{ kruzok.veduci.meno }}</td>
+                    <td>{{ kruzok.veduci.email }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>Žiadne krúžky nie sú dostupné.</p>
+    {% endif %}
+
+</body>
+</html>

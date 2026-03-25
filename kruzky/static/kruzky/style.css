@@ -1,0 +1,243 @@
+/* --- EXTRÉMNE POZADIE (SYSTÉMOVÝ SCAN) --- */
+/* Import nových sci-fi fontov */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Rajdhani', sans-serif; /* Tech font pre bežný text */
+    margin: 0;
+    padding: 60px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+    /* Intenzívny, rýchlejší cyberpunkový gradient */
+    background: linear-gradient(-45deg, #05010a, #20053a, #4a287a, #009bb3, #ff0055);
+    background-size: 600% 600%;
+    animation: gradientBG 10s ease-in-out infinite;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+/* Jemný hexagonal pattern overlay */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* --- LEVITUJÚCI NADPIS (NEÓNOVÝ PORTÁL) --- */
+h1 {
+    font-family: 'Audiowide', cursive; /* Sci-fi title font */
+    font-size: 3.5rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    margin-bottom: 60px;
+    text-align: center;
+    background: linear-gradient(to right, #00d2ff, #ff00c3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 15px rgba(0, 210, 255, 0.8), 0 0 30px rgba(255, 0, 195, 0.5);
+    animation: float 5s ease-in-out infinite, glitches 3s steps(1) infinite;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px; left: 50%;
+    transform: translateX(-50%);
+    width: 60%; height: 4px;
+    background: linear-gradient(to right, transparent, #ff00c3, transparent);
+    box-shadow: 0 0 15px #ff00c3, 0 0 30px #ff00c3;
+    animation: portalPulse 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(1deg); }
+    50% { transform: translateY(0px) rotate(-1deg); }
+    75% { transform: translateY(15px) rotate(1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes glitches {
+    0%, 100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+    2% { clip-path: polygon(0 15%, 100% 15%, 100% 16%, 0 16%); }
+    4% { clip-path: polygon(0 65%, 100% 65%, 100% 66%, 0 66%); }
+    6% { clip-path: polygon(0 85%, 100% 85%, 100% 86%, 0 86%); }
+    8% { clip-path: polygon(0 35%, 100% 35%, 100% 36%, 0 36%); }
+}
+
+@keyframes portalPulse {
+    0%, 100% { width: 60%; opacity: 1; }
+    50% { width: 80%; opacity: 0.5; }
+}
+
+/* --- NEÓNOVÝ KONTAJNER (PRVÝ KROK K VIDITEĽNOSTI) --- */
+.table-container {
+    width: 100%;
+    max-width: 1100px;
+    background: rgba(10, 10, 15, 0.8); /* Solidnejšie pozadie pre kontrast */
+    border-radius: 20px;
+    padding: 20px;
+    position: relative;
+    overflow-x: auto;
+    perspective: 1000px; /* Nevyhnutné pre 3D tilt na hoveri */
+}
+
+/* Intenzívny, animovaný, viacfarebný neónový rám kontajnera */
+.table-container::before {
+    content: '';
+    position: absolute;
+    top: -4px; left: -4px; right: -4px; bottom: -4px;
+    background: linear-gradient(45deg, #00d2ff, #6441A5, #ff00c3, #3a7bd5, #00d2ff);
+    background-size: 400%;
+    z-index: -1;
+    border-radius: 24px;
+    animation: neonGlow 5s linear infinite;
+    filter: blur(15px);
+    opacity: 0.6;
+}
+
+@keyframes neonGlow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 400% 50%; }
+}
+
+/* --- SAMOTNÁ TABUĽKA (SOLIDNÁ A VIDITEĽNÁ) --- */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Solidny blok pre lepšiu viditeľnosť */
+    text-align: left;
+    min-width: 750px;
+    background: transparent;
+    border-radius: 12px;
+    overflow: hidden; /* Pre zaoblené rohy */
+}
+
+/* Hlavička - ostrejšie farby a výraznejšie písmo */
+thead { background: #120e1f; }
+
+th {
+    padding: 20px 25px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: #00d2ff;
+    border-bottom: 2px solid #ff00c3; /* Ostrý predel */
+    text-shadow: 0 0 5px rgba(0, 210, 255, 0.5);
+}
+
+/* Zvyšná viditeľnosť: ostrejšie ohraničenia riadkov a solidnejšie bunky */
+tbody {
+    border: 1px solid #ff00c3; /* Ohraničenie celého tela tabuľky */
+}
+
+tbody tr {
+    background: rgba(30, 30, 45, 1);
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-bottom: 1px solid rgba(255, 0, 195, 0.2);
+    position: relative; /* Nevyhnutné pre z-index na hoveri */
+}
+
+td {
+    padding: 20px 25px;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Zvýraznenie dôležitých údajov: Názov krúžku */
+tbody tr td:first-child {
+    font-family: 'Audiowide', cursive;
+    color: #fff;
+    font-weight: 400;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* --- EXTRÉMNY HOVER (DRAMATICKÝ 3D TILT A INTENZÍVNE ŽIARENIE) --- */
+tbody tr:hover {
+    background: rgba(50, 50, 70, 1);
+    /* Dramatický 3D tilt, zväčšenie a levitácia */
+    transform: rotateX(5deg) rotateY(2deg) scale(1.05) translateY(-8px);
+    /* Intenzívne, viacvrstvové neónové žiarenie */
+    box-shadow: 0 20px 50px rgba(100, 255, 218, 0.7);
+    cursor: pointer;
+    z-index: 10;
+}
+
+/* Neónový rámik na prejdenom riadku */
+tbody tr:hover::after {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(45deg, #64ffda, #00d2ff, #ff00c3);
+    border-radius: 8px;
+    z-index: -1;
+    filter: blur(5px);
+    animation: neonGlowRow 2s linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes neonGlowRow {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+/* Zaoblenie iba krajných buniek v riadku pre solidnosť */
+tbody tr td:first-child { border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
+tbody tr td:last-child { border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+
+/* --- EXTRÉMNE E-MAILY (ELEKTRICKÝ GAUGE) --- */
+td a {
+    color: #ff00c3;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+    text-shadow: 0 0 10px rgba(255, 0, 195, 0.6);
+}
+
+td a:hover {
+    color: #fff;
+    text-shadow: 0 0 15px #ff00c3, 0 0 30px #ff00c3, 0 0 50px #ff00c3, 0 0 80px #00d2ff;
+}
+
+/* --- EXTRÉMNA HLÁŠKA (SYSTÉMOVÝ ERROR) --- */
+.empty-message {
+    font-family: 'Audiowide', cursive;
+    background: rgba(255, 0, 85, 0.2);
+    padding: 40px 80px;
+    border-radius: 12px;
+    border: 3px solid #ff0055;
+    box-shadow: 0 0 50px rgba(255, 0, 85, 0.5), inset 0 0 30px rgba(255, 0, 85, 0.3);
+    font-size: 1.6rem;
+    color: #ff0055;
+    text-shadow: 0 0 10px #ff0055;
+    animation: pulseError 1s infinite alternate, glitches 2s steps(1) infinite alternate;
+}
+
+@keyframes pulseError {
+    0% { transform: scale(1); box-shadow: 0 0 50px rgba(255, 0, 85, 0.5); }
+    100% { transform: scale(1.05); box-shadow: 0 0 70px rgba(255, 0, 85, 0.8); }
+}
+
+/* --- CUSTOM SCROLLBAR (CYBERPUNK STRIP) --- */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #05010a; border-radius: 5px; }
+::-webkit-scrollbar-thumb { background: linear-gradient(#00d2ff, #6441A5); border-radius: 5px; border: 2px solid #05010a;}
+::-webkit-scrollbar-thumb:hover { background: #ff00c3; box-shadow: 0 0 10px #ff00c3; }
