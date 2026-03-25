@@ -1,0 +1,5 @@
+Mgr. Jana Nováková;jana.novakova@skola.sk;Programovanie v Pythone;Pondelok;B2
+Ing. Peter Kováč;peter.kovac@skola.sk;Matematická olympiáda;Utorok;A1
+Ing. Peter Kováč;peter.kovac@skola.sk;Robotika;Streda;C3
+Bc. Lucia Pekná;lucia.pekna@skola.sk;Výtvarný krúžok;Štvrtok;Ateliér
+Mgr. Jana Nováková;jana.novakova@skola.sk;Športové hry;Piatok;Telocvičňa
